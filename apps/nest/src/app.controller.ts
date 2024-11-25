@@ -35,4 +35,12 @@ export class AppController {
       },
     });
   }
+
+  // also error in signle handler approach
+  @TsRestHandler(sharedContract)
+  async delete() {
+    return tsRestHandler(sharedContract, async () => {
+      return { status: 204, body: undefined };
+    });
+  }
 }

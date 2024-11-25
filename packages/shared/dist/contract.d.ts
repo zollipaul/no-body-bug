@@ -4,9 +4,9 @@ export declare const sharedContract: {
         pathParams: z.ZodObject<{
             id: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            id?: number;
+            id: number;
         }, {
-            id?: number;
+            id: number;
         }>;
         summary: "Delete a reflection";
         method: "DELETE";
@@ -16,3 +16,4 @@ export declare const sharedContract: {
         };
     };
 };
+//# sourceMappingURL=contract.d.ts.map
