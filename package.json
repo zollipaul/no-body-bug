@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "monorepo",
+  "version": "1.0.0",
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "clean:install": "rm -rf **/node_modules yarn.lock && yarn cache clean && yarn install"
+  }
+}
