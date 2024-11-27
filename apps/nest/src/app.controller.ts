@@ -1,8 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
-import { sharedContract } from 'shared';
+import { sharedContract, sharedContractWithCommonResponse } from 'shared';
 import { localContract } from 'src/contract';
 import { AppService } from './app.service';
+import { TsRestResponseError } from '@ts-rest/core';
 
 @Controller()
 export class AppController {
@@ -41,6 +42,14 @@ export class AppController {
   async delete() {
     return tsRestHandler(sharedContract, async () => {
       return { status: 204, body: undefined };
+    });
+  }
+
+  // ts-error: Argument of type '{ status: number; body: { message: string; }; }' is not assignable to parameter of type 'never'.ts(2345)
+  someMethod() {
+    throw new TsRestResponseError(sharedContractWithCommonResponse, {
+      status: 422,
+      body: { message: 'foobar' },
     });
   }
 }
